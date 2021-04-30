@@ -1,5 +1,7 @@
+$flaticon-font: "flaticon";
+
 @font-face {
-    font-family: "flaticon";
+    font-family: $flaticon-font;
     src: url("./flaticon.ttf?1beef040d4d51b23187d751a8736f3ee") format("truetype"),
 url("./flaticon.woff?1beef040d4d51b23187d751a8736f3ee") format("woff"),
 url("./flaticon.woff2?1beef040d4d51b23187d751a8736f3ee") format("woff2"),
@@ -18,15 +20,22 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
     -moz-osx-font-smoothing: grayscale;
 }
 
+$flaticon-map: (
+    "smartphone": "\f101",
+    "walkie-talkie": "\f102",
+    "investigate": "\f103",
+    "protection": "\f104",
+);
+
 .flaticon-smartphone:before {
-    content: "\f101";
+    content: map-get($flaticon-map, "smartphone");
 }
 .flaticon-walkie-talkie:before {
-    content: "\f102";
+    content: map-get($flaticon-map, "walkie-talkie");
 }
 .flaticon-investigate:before {
-    content: "\f103";
+    content: map-get($flaticon-map, "investigate");
 }
 .flaticon-protection:before {
-    content: "\f104";
+    content: map-get($flaticon-map, "protection");
 }

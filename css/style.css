@@ -9166,8 +9166,7 @@ textarea.form-control {
   .testimony-section .owl-carousel {
     margin: 0; }
   .testimony-section .owl-carousel .owl-stage-outer {
-    padding-top: 3.5em;
-    padding-bottom: 2em;
+
     position: relative; }
   .testimony-section .owl-nav {
     position: absolute;
@@ -9242,7 +9241,7 @@ textarea.form-control {
       right: 0;
       width: 40px;
       height: 40px;
-      background: #38d39f;
+      background: #a90000;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
