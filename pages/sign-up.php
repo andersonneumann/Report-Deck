@@ -5,8 +5,14 @@
 <!DOCTYPE html>
 <html lang="en">
    <!-- head.php aqui -->
+   <?php
+         include_once("head.php");
+   ?>
    <body>
       <!-- navbar.php aqui -->
+      <?php
+         include_once("navbar.php");
+      ?>
       <section class="ftco-section contact-section ftco-degree-bg ">
          <script>
             function validaSenha(){
@@ -59,5 +65,8 @@
          </div>
       </section>
       <!-- footer.php aqui -->
+      <?php
+         include_once("footer.php");
+      ?>
    </body>
 </html>

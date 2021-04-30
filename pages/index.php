@@ -7,7 +7,7 @@
    <!-- head.php aqui -->
    <?php
          include_once("head.php");
-      ?>
+   ?>
    <body>
       <!-- navbar.php aqui -->
       <?php
