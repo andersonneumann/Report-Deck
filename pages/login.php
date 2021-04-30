@@ -1,3 +1,7 @@
+<?php
+// Escrever comandos aqui
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
