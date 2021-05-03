@@ -29,7 +29,7 @@
          </div>
       </div>
 
-      <section name="about" id="about" class="ftco-section services-section bg-light">
+      <section name="projeto" id="about" class="ftco-section services-section bg-light">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 text-center heading-section ftco-animate">
