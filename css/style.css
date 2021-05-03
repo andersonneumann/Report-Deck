@@ -9021,8 +9021,8 @@ textarea.form-control {
 
 .ftco-footer {
   font-size: 16px;
-  padding: 5em 0;
-  padding-bottom: 3em;
+  padding: 1em;
+  padding-bottom: 0.5em;
   background: #a90606; }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
@@ -9296,6 +9296,7 @@ textarea.form-control {
 
 .ftco-section {
   position: relative;
+  bottom:0;
   width: 100%;
   display: block; }
   .ftco-section .nav-pills p {
