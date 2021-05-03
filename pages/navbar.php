@@ -8,7 +8,7 @@
          <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a id="homeP" href="index.php" class="nav-link">Início</a></li>
             <li class="nav-item"><a id="aboutP" href="index.php#about" class="nav-link">Sobre Nós</a></li>
-            <li class="nav-item cta"><a id="buttonR" href="voltar.php" class="nav-link start"><span id="return">VOLTAR</span></a></li>
+            <li class="nav-item cta"><a id="buttonR" href="comecar.php" class="nav-link start"><span id="return">VOLTAR PARA O LOGIN</span></a></li>
          </ul>
       </div>
    </div>   
@@ -18,18 +18,18 @@
    if(window.location.pathname === "/"){
       document.getElementById("homeP").href="pages/index.php";
       document.getElementById("aboutP").href="pages/index.php#about";
-      if(window.location.pathname === "/pages/index.php" || window.location.pathname === "/"){
+      if(window.location.pathname === "/pages/index.php" || window.location.pathname === "/" || window.location.pathname === "/pages/comecar.php"){
          var botao = document.querySelector("#return");
          botao.innerHTML = "COMEÇAR!"
          document.getElementById("buttonR").href="pages/comecar.php"; 
       }else{
-         botao.innerHTML = "VOLTAR"
-         document.getElementById("buttonR").href="pages/voltar.php"; 
+         botao.innerHTML = "VOLTAR PARA O LOGIN"
+         document.getElementById("buttonR").href="pages/comecar.php"; 
       }
    }else{
       document.getElementById("homeP").href="index.php";
       document.getElementById("aboutP").href="index.php#about";
-      if(window.location.pathname === "/pages/index.php" || window.location.pathname === "/"){
+      if(window.location.pathname === "/pages/index.php" || window.location.pathname === "/" || window.location.pathname === "/pages/comecar.php"){
          var botao = document.querySelector("#return");
          botao.innerHTML = "COMEÇAR!"
          document.getElementById("buttonR").href="comecar.php"; 
@@ -38,4 +38,4 @@
          document.getElementById("buttonR").href="voltar.php"; 
       }
    }
-   </script>
+</script>
