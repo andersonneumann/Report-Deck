@@ -6,12 +6,12 @@
 <html lang="pt-br">
    <!-- head.php aqui -->
    <?php
-         include_once("head.php");
+    include_once("head.php");
    ?>
    <body>
       <!-- navbar.php aqui -->
       <?php
-         include_once("navbar.php");
+        include_once("navbar.php");
       ?>
       <div class="hero-wrap js-fullheight">
          <div class="overlay"></div>
@@ -30,7 +30,7 @@
       </div>
       <!-- footer.php aqui -->
       <?php
-         include_once("footer.php");
+        include_once("footer.php");
       ?>
    </body>
 </html>
