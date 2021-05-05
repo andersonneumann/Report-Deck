@@ -14,16 +14,7 @@
          include_once("navbar.php");
       ?>
       <section class="ftco-section contact-section ftco-degree-bg ">
-         <script>
-            function validaSenha(){
-              senha1 = document.cadastro.senha1.value
-              senha2 = document.cadastro.senha2.value
-              
-              if (senha1 != senha2)
-                var titulo = document.querySelector(".caution");
-                titulo.textContent = "As senhas não são iguais!";
-            }
-         </script>
+         
          <br>
          <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
@@ -54,7 +45,7 @@
                         <input type="password" class="form-control" name="senha2" placeholder="Confirme a Senha">
                      </div>
                      <div class="form-group">
-                        <center><input type="submit" value="Cadastrar" class="btn btn-primary py-3 px-5" onclick="validaSenha()"></center>
+                        <center><input id="signup" type="submit" value="Cadastrar" class="btn btn-primary py-3 px-5"></center>
                      </div>
                      <div class="caution">
                         <h3></h3>
@@ -68,5 +59,21 @@
       <?php
          include_once("footer.php");
       ?>
+      <script>
+         function validaSenha(e){
+            
+            senha1 = document.cadastro.senha1.value
+            senha2 = document.cadastro.senha2.value
+            console.log(senha2);
+
+            if (senha1 != senha2){
+               var titulo = document.querySelector(".caution");
+               titulo.textContent = "As senhas não são iguais!";
+               e.preventDefault();
+            }
+         }
+
+         document.getElementById("signup").addEventListener("click",validaSenha);
+      </script>
    </body>
 </html>
