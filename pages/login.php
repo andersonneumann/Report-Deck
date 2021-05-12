@@ -1,5 +1,5 @@
 <?php
-// Escrever comandos aqui
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +23,21 @@
             </div>
             <div class="row block-6 itemsincenter justify-content-center">
                <div class="col-md-6 pr-md-5 itemsincenter ">
-                  <form action="#">
+                   <?php
+                    if (isset($_SESSION['not_find'])):
+                   ?>
+                   <b>Usuário ou senha incorretos</b>
+                   <?php
+                    unset($_SESSION['not_find']);
+                    endif;
+                   ?>
+                   <form action="log_in.php" method="POST">
                      <!--Inserir ação aqui-->
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Nome de Usuário ou E-mail">
+                         <input type="text" id="user" name="user" class="form-control" placeholder="Nome de Usuário ou E-mail">
                      </div>
                      <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Senha">
+                        <input type="password" id="passwd" name="passwd" class="form-control" placeholder="Senha">
                      </div>
                      <div class="form-group">
                         <center><input type="submit" value="Entrar" class="btn btn-primary py-3 px-5"></center>

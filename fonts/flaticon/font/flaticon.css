@@ -1,39 +1,32 @@
-	/*
-  	Flaticon icon font: Flaticon
-  	Creation date: 07/05/2019 06:52
-  	*/
-
 @font-face {
-  font-family: "Flaticon";
-  src: url("./Flaticon.eot");
-  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
-       url("./Flaticon.woff2") format("woff2"),
-       url("./Flaticon.woff") format("woff"),
-       url("./Flaticon.ttf") format("truetype"),
-       url("./Flaticon.svg#Flaticon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?1beef040d4d51b23187d751a8736f3ee") format("truetype"),
+url("./flaticon.woff?1beef040d4d51b23187d751a8736f3ee") format("woff"),
+url("./flaticon.woff2?1beef040d4d51b23187d751a8736f3ee") format("woff2"),
+url("./flaticon.eot?1beef040d4d51b23187d751a8736f3ee#iefix") format("embedded-opentype"),
+url("./flaticon.svg?1beef040d4d51b23187d751a8736f3ee#flaticon") format("svg");
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: "Flaticon";
-    src: url("./Flaticon.svg#Flaticon") format("svg");
-  }
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
-  font-family: Flaticon;
-        font-size: 20px;
-font-style: normal;
-margin-left: 20px;
+.flaticon-smartphone:before {
+    content: "\f101";
 }
-
-.flaticon-server:before { content: "\f100"; }
-.flaticon-cloud:before { content: "\f101"; }
-.flaticon-cloud-computing:before { content: "\f102"; }
-.flaticon-settings:before { content: "\f103"; }
-.flaticon-database:before { content: "\f104"; }
-.flaticon-life-insurance:before { content: "\f105"; }
-.flaticon-customer-service:before { content: "\f106"; }
+.flaticon-walkie-talkie:before {
+    content: "\f102";
+}
+.flaticon-investigate:before {
+    content: "\f103";
+}
+.flaticon-protection:before {
+    content: "\f104";
+}
