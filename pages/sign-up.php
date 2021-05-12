@@ -6,12 +6,12 @@
 <html lang="en">
    <!-- head.php aqui -->
    <?php
-         include_once("head.php");
+        include_once("head.php");
    ?>
    <body>
       <!-- navbar.php aqui -->
       <?php
-         include_once("navbar.php");
+        include_once("navbar.php");
       ?>
       <section class="ftco-section contact-section ftco-degree-bg ">
          
@@ -24,25 +24,25 @@
             </div>
             <div class="row block-6 itemsincenter justify-content-center">
                <div class="col-md-6 pr-md-5 itemsincenter ">
-                  <form name="cadastro" action="#">
+                   <form name="cadastro" action="caccout.php" method="POST">
                      <!--Inserir ação aqui-->
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Seu Usuário">
+                         <input id="usr" name="usr" type="text" class="form-control" placeholder="Seu Usuário" required>
                      </div>
                      <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Seu Email">
+                        <input id="email" name="email" type="email" class="form-control" placeholder="Seu Email" required>
                      </div>
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="RG">
+                        <input id="rg" name="rg" type="text" class="form-control" placeholder="RG" required>
                      </div>
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="CPF">
+                        <input id="cpf" name="cpf" type="text" class="form-control" placeholder="CPF" required>
                      </div>
                      <div class="form-group">
-                        <input type="password" class="form-control" name="senha1" placeholder="Senha">
+                        <input id="senha1" name="senha1" type="password" class="form-control" name="senha1" placeholder="Senha" required>
                      </div>
                      <div class="form-group">
-                        <input type="password" class="form-control" name="senha2" placeholder="Confirme a Senha">
+                        <input id="senha2" name="senha2" type="password" class="form-control" name="senha2" placeholder="Confirme a Senha" required>
                      </div>
                      <div class="form-group">
                         <center><input id="signup" type="submit" value="Cadastrar" class="btn btn-primary py-3 px-5"></center>
@@ -71,7 +71,7 @@
                titulo.textContent = "As senhas não são iguais!";
                e.preventDefault();
             }
-         }
+        }
 
          document.getElementById("signup").addEventListener("click",validaSenha);
       </script>
