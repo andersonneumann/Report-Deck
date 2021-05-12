@@ -7,8 +7,7 @@ Create table Cidadao(
     CPF char(11) not null,
 	NomeUsuario varchar(50)  not null,
     Senha varchar(50)  not null,
-    telefone char(11) not null,
-    RG char(11)  not null,
+	RG char(11)  not null,
     Email varchar(200) not null,
     primary key(CPF, NomeUsuario));
 
