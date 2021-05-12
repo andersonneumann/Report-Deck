@@ -894,6 +894,8 @@ pre {
     flex: 0 0 41.66667%;
     max-width: 41.66667%; }
   .col-md-6 {
+    margin-left: auto;
+    margin-right: auto;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
@@ -1580,6 +1582,37 @@ pre {
     .table-responsive-xl > .table-bordered {
       border: 0; } }
 
+      /* =======================================
+      Authentication-page css start
+ ========================================= */
+.login-block {
+  margin: 30px auto; }
+  .login-block .auth-box {
+    margin: 20px auto 0 auto;
+    max-width: 450px; }
+    .login-block .auth-box .confirm h3 {
+      color: #448aff;
+      font-size: 34px; }
+    .login-block .auth-box i.icofont-check-circled {
+      font-size: 42px; }
+  .login-block.offline-404 .auth-box {
+    max-width: 650px; }
+    .login-block.offline-404 .auth-box h1 {
+      color: #2c3e50;
+      font-size: 160px;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-shadow: 3px -2px 4px rgba(128, 128, 128, 0.57); }
+
+.footer {
+  background-color: #37474f;
+  color: #fff;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+
+/**====== Authentication-page css end ======**/
 .table-responsive {
   display: block;
   width: 100%;
@@ -2072,28 +2105,28 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff; }
+  background-color: #9b0101;
+  border-color: #9b0101; }
   .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc; }
+    background-color: #9b0101;
+    border-color: #9b0101; }
   .btn-primary:focus, .btn-primary.focus {
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(105, 0, 0, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(105, 0, 0, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff; }
+    background-color: #9b0101;
+    border-color: #9b0101; }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
   .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #0062cc;
-    border-color: #005cbf; }
+    background-color: #9b0101;
+    border-color: #9b0101; }
     .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-primary.dropdown-toggle:focus {
-      -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(105, 0, 0, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(105, 0, 0, 0.5); }
 
 .btn-secondary {
   color: #fff;
@@ -8988,8 +9021,8 @@ textarea.form-control {
 
 .ftco-footer {
   font-size: 16px;
-  padding: 5em 0;
-  padding-bottom: 3em;
+  padding: 1em;
+  padding-bottom: 0.5em;
   background: #a90606; }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
@@ -9166,8 +9199,7 @@ textarea.form-control {
   .testimony-section .owl-carousel {
     margin: 0; }
   .testimony-section .owl-carousel .owl-stage-outer {
-    padding-top: 3.5em;
-    padding-bottom: 2em;
+
     position: relative; }
   .testimony-section .owl-nav {
     position: absolute;
@@ -9242,7 +9274,7 @@ textarea.form-control {
       right: 0;
       width: 40px;
       height: 40px;
-      background: #38d39f;
+      background: #a90000;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
@@ -9264,6 +9296,7 @@ textarea.form-control {
 
 .ftco-section {
   position: relative;
+  bottom:0;
   width: 100%;
   display: block; }
   .ftco-section .nav-pills p {
