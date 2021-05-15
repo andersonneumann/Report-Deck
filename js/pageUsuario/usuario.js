@@ -43,16 +43,16 @@ function criarNovaOcorrencia(){
   val += '<div class="novaOcorrencia"><form>';
   val += '<div class="form-group">';
   val += '<label for="tituloOcorrencia" class="textoTemaEscuro">*Título:</label>'
-  val += '<input type="text" class="form-control" required>';
+  val += '<input type="text" class="form-control styleForm" required>';
   val += '<small class="textoTemaEscuro">Insira um título para a ocorrência</small></div>';
   val += '<div class="form-group">';
   val += '<label for="descricaoSuspeito" class="textoTemaEscuro">*Descrição do Ocorrido:</label>';
-  val += '<textarea class="form-control" rows="3" required></textarea>';
+  val += '<textarea class="form-control styleForm" rows="3" required></textarea>';
   val += '<small class="textoTemaEscuro">Descreva detalhadamente o que aconteceu</small>';
   val += '</div>';
   val += '<div class="form-group">';
   val += '<label for="tipoCrime" class="textoTemaEscuro">*Tipo de Crime:</label>';
-  val += '<select class="form-control">';
+  val += '<select class="form-control styleForm">';
   val += '<option selected disabled hidden>Selecione o tipo de crime</option>';
   val += '<option>Assalto</option>';
   val += '<option>Sequestro</option>';
@@ -62,15 +62,15 @@ function criarNovaOcorrencia(){
   val += '<option>Tráfico de Drogas</option></select></div>';
   val += '<div class="form-group">';
   val += '<label for="endereco" class="textoTemaEscuro">*Endereço do Ocorrido:</label>';
-  val += '<input type="text" class="form-control" required>';
+  val += '<input type="text" class="form-control styleForm" placeholder="Ex: Rua Getúlio Vargas 152" required>';
   val += '<small class="textoTemaEscuro">Insira o local em que o crime ocorreu</small></div>';
   val += '<div class="form-group">';
   val += '<label for="dataOcorrencia" class="textoTemaEscuro">*Data do Ocorrido:</label>';
-  val += '<input type="date" class="form-control" required>';
+  val += '<input type="date" class="form-control styleForm" required>';
   val += '<small class="textoTemaEscuro">Insira a data da ocorrência</small></div>';
   val += '<div class="form-group">';
   val += '<label for="horaOcorrencia" class="textoTemaEscuro">*Horário do Ocorrido:</label>';
-  val += '<input type="time" class="form-control" required>';
+  val += '<input type="time" class="form-control styleForm" required>';
   val += '<small class="textoTemaEscuro">Insira o horário aproximado da ocorrência</small></div>';
   val += '<div class="form-group">';
   val += '<label for="horaOcorrencia" class="textoTemaEscuro">Imagem do Ocorrido:</label>';
@@ -79,7 +79,7 @@ function criarNovaOcorrencia(){
   val += '<h5 class="text-center textoTemaEscuro">Informações Adicionais:</h5>';
   val += '<div class="form-group">';
   val += '<label for="tipoCrime" class="textoTemaEscuro">Grau de proximidade do ocorrido:</label>';
-  val += '<select class="form-control">';
+  val += '<select class="form-control styleForm">';
   val += '<option selected>Eu fui a vítima do ocorrido</option>';
   val += '<option>Eu presenciei o ocorrido</option>';
   val += '<option>Eu soube do ocorrido</option>';

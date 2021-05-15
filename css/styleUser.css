@@ -46,4 +46,25 @@ p.novaOcorrencia{
 }
 img.imagemOcorrenciaPreview{
   width: 80%;
+	padding-top: 5px;
+}
+input::-webkit-file-upload-button{
+	background-color: #424242;
+	border: 1px solid white;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+}
+.styleForm{
+	background-color: #424242;
+	border: 1px solid white;
+	color: white;
+}
+.styleForm::placeholder{
+	color: #d4d4d4;
+}
+.styleForm:focus{
+	background-color: #525252;
+	border: 1px solid white;
+	color: white;
 }
