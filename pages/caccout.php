@@ -12,4 +12,7 @@ $query = "INSERT INTO `Cidadao` (`CPF`, `NomeUsuario`, `Senha`, `RG`, `Email`) V
 
 if (!mysqli_query($conn, $query)){
     echo mysqli_error($conn);
+} else {
+    header('Location: login.php');
+    exit();
 }
