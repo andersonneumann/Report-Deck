@@ -41,16 +41,16 @@ create table Ocorrencia(
 	Codigo int primary key,
     Titulo varchar(100) not null,
     Crime int not null,
-    DescricaoSuspeito text,
+    grauDoCrime int not null,
+    DescricaoCrime text,
     Observacao text,
+    enderecoOcorrencia varchar(300),
     DataOcorrencia date,
     HoraOcorrenciaApx time,
     cidadao char(11) not null,
-	administradorResp int not null,
 -- vincula os campos da tabela ocorrência como chave estrangeira de outras tabelas;
     foreign key(Crime) references Crimes(id),
-    foreign key(cidadao) references Cidadao(CPF),
-    foreign key(administradorResp) references Administrador(Codigo)
+    foreign key(cidadao) references Cidadao(CPF)
 );
 
 -- Cria a tabela imagem com seus respectivos campos;
