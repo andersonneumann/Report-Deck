@@ -4,16 +4,21 @@ use ReportDeck;
 
 -- Cria a tabela cidadão com seus respectivos campos;
 Create table Cidadao(
-    CPF char(11) not null,
-	NomeUsuario varchar(50)  not null,
-    Senha varchar(50)  not null,
+	id int not null AUTO_INCREMENT,
+	CPF char(11) not null,
+	Genero varchar(9) not null,
+	Tema boolean, 
+	Nascimento date not null,
+	Nome_completo varchar(200) not null,
+	Telefone varchar(11),
+	Senha varchar(50)  not null,
 	RG char(11)  not null,
-    Email varchar(200) not null,
-    primary key(CPF, NomeUsuario));
+	Email varchar(200) not null,
+	primary key(CPF, ID));
 
 -- Cria a tabela administrador com seus respectivos campos;    
 Create table Administrador(
-    Codigo int not null,
+    Codigo int not null ,
 	NomeUsuarioADM varchar(50)  not null,
     Senha varchar(50)  not null,
     NomeCompleto varchar(200)  not null,
@@ -69,4 +74,5 @@ create table Atualizacao(
     foreign key(cidadao) references Cidadao(CPF),
     foreign key(CodOcorrencia) references Ocorrencia(Codigo)
 );
+
 

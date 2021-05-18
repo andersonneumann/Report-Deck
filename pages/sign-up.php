@@ -27,7 +27,7 @@
                    <form name="cadastro" action="caccout.php" method="POST">
                      <!--Inserir ação aqui-->
                      <div class="form-group">
-                         <input id="usr" name="usr" type="text" class="form-control" placeholder="Seu Usuário" required>
+                         <input id="usr" name="usr" type="text" class="form-control" placeholder="Seu nome completo" required>
                      </div>
                      <div class="form-group">
                         <input id="email" name="email" type="email" class="form-control" placeholder="Seu Email" required>
@@ -37,6 +37,15 @@
                      </div>
                      <div class="form-group">
                         <input id="cpf" name="cpf" type="text" class="form-control" placeholder="CPF" required>
+                     </div>
+                     <div class="form-group">
+                        <input id="genero" name="genero" type="text" class="form-control" placeholder="Genero" required>
+                     </div>
+                     <div class="form-group">
+                        <input id="nasc" name="nasc" type="date" class="form-control" placeholder="Genero" required>
+                     </div>
+                     <div class="form-group">
+                        <input id="fone" name="fone" type="text" class="form-control" placeholder="Telefone" required>
                      </div>
                      <div class="form-group">
                         <input id="senha1" name="senha1" type="password" class="form-control" name="senha1" placeholder="Senha" required>
