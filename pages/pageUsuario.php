@@ -13,9 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
-    <?php $cookie_name = "user";
+    <?php
+        session_start();
+        include './connect.php';
+        $cookie_name = "user";
         $cookie_value = $_SESSION['user'];
-        setcookie($cookie_name,$cookie_value)?>
+        setcookie($cookie_name,$cookie_value);
+        ?>
     <a onclick="loadPage()"><div class="topo sticky-top"><img src="../images/rdlogowhite.png" class="rounded mx-auto d-block logoRD"></div></a>
     <div class="appendContentClick"></div>
   </body>
