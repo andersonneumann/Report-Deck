@@ -48,6 +48,7 @@ function exibirMenuDeOpcoes(){
 
 function exibirMapaDeOcorrencias(){
   $(".appendContentClick").html("");
+  val = getCookie('ocorrencias');
   alert("Exibindo mapa de Ocorrências");
 }
 
@@ -90,7 +91,7 @@ function criarNovaOcorrencia(){
   val += '<small class="textoTemaEscuro">Insira o horário aproximado da ocorrência</small></div>';
   val += '<div class="form-group">';
   val += '<label for="horaOcorrencia" class="textoTemaEscuro">Imagem do Ocorrido:</label>';
-  val += '<input type="file" class="textoTemaEscuro" accept="image/*" onchange="loadFile(event)">';
+  val += '<input id="imagem" name="imagem" type="file" class="textoTemaEscuro" accept="image/*" onchange="loadFile(event)">';
   val += '<img class="imagemOcorrenciaPreview" id="output"/></div>';
   val += '<h5 class="text-center textoTemaEscuro">Informações Adicionais:</h5>';
   val += '<div class="form-group">';
@@ -119,7 +120,7 @@ function criarNovaOcorrencia(){
 
 function visualizarOcorrencias(){
   $(".appendContentClick").html("");
-  alert("Exibindo ocorrencias");
+  $(".appendContentClick").append("val");
 }
 
 function exibirPerfil(){
