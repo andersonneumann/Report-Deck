@@ -14,38 +14,9 @@
     </head>
     <body>
         <?php
-        session_start();
         include './connect.php';
         //Captura e armazena em cookie o nome de usuário
         setcookie("user", $_SESSION['user']);
-        
-        //SQL de apresentação de ocorrências
-        $sql = "SELECT `Titulo`, `Crime`, `grauDoCrime`, `DescricaoCrime`, `enderecoOcorrencia`, `Imagem`, `DataOcorrencia`, `HoraOcorrenciaApx`"
-                . "FROM `Ocorrencia` WHERE 1";
-        //Codigo que irá executar o script SQL
-        $result = mysqli_query($conn, $sql);
-        
-        //Executando o script SQL
-        if (mysqli_num_rows($result) > 0) {
-            //Se encontrar valores
-            $val = "";
-            while ($coluna = mysqli_fetch_assoc($result)) {
-                //while irá passar por todas as linhas da tabela selecionada
-                $val .= "<h4>" . $coluna["Titulo"] . "</h4>"
-                        .$coluna["DataOcorrencia"]
-                        ."<h4>Crime: " . $coluna["Crime"] . "</h4>"
-                        ."<h4>Grau: ".$coluna["grauDoCrime"]."</h4>"
-                        ."<h4>".$coluna["DescricaoCrime"]."</h4>";  
-                if ($coluna['Imagem']) {
-                    $img = $coluna['Imagem'];
-                    var_dump($img);
-                    $val .= '<img src="data:image/jpeg;base64,'.base64_encode($img) .'/>';
-                }
-            }
-        } else {
-            echo "0 results";
-        }
-        echo $val;
         ?>
         <a onclick="loadPage()"><div class="topo sticky-top"><img src="../images/rdlogowhite.png" class="rounded mx-auto d-block logoRD"></div></a>
         <div class="appendContentClick"></div>

@@ -19,12 +19,7 @@ $boxTermos = mysqli_real_escape_string($conn, $_POST['termos']);
 
 //Dados do usuário
 $cpf = $_SESSION['cpf'];
-if (!$_FILES['Imagem']['error']){
-    $imagem = 'null';
-}else{
-    $imagem = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
-}
-
+$imagem = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
 
 
 //Query que será executada
