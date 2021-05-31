@@ -1,6 +1,6 @@
 <html>
     <?php
-    include './verify_login.php';?>
+    include 'verify_login.php';?>
     <head>
         <title>Report Deck</title>
         <script type="text/javascript" src="../js/pageUsuario/jquery.js"></script>
