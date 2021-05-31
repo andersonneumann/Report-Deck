@@ -34,7 +34,7 @@ session_start();
                    <form action="log_in.php" method="POST">
                      <!--Inserir ação aqui-->
                      <div class="form-group">
-                         <input type="text" id="user" name="user" class="form-control" placeholder="Nome de Usuário ou E-mail">
+                         <input type="text" id="user" name="user" class="form-control" placeholder="E-mail">
                      </div>
                      <div class="form-group">
                         <input type="password" id="passwd" name="passwd" class="form-control" placeholder="Senha">

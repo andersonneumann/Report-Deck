@@ -76,7 +76,7 @@ function exibirConfigs(){
 
 function sair(){
   $(".appendContentClick").html("");
-  alert("Saindo");
+  window.location.replace("../../pages/log_out.php");
 }
 
 // Exibir preview da imagem na criação da ocorrência:
