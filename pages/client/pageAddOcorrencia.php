@@ -1,6 +1,4 @@
-<?php 
-include './verify_login.php';
-?>
+
 <html>
 <head>
         <title>Report Deck</title>

@@ -22,12 +22,14 @@ $result = mysqli_query($conn, $sql);
          */
         if (mysqli_fetch_assoc($result)):
             while ($coluna = $result->fetch_assoc()):
+		$data = new DateTime($coluna['DataOcorrencia']);
+		$hora = new DateTime($coluna['HoraOcorrenciaApx']);
                 ?>
                 <tr>
                     <td><h4><?= $coluna["Titulo"]; ?></h4></td>
                 </tr>
                 <tr>
-                    <td><h6><b>Crime: <?= $coluna["nome"]; ?></b> - <?= date("d/m/Y", strtotime($coluna['DataOcorrencia'])) ?>  <?= date ("H:i", $coluna['HoraOcorrenciaApx']) ?></h6></td>
+                    <td><h6><b>Crime: <?= $coluna["nome"]; ?></b> - <?= $data->format('d/m/Y') ?>  <?= $hora->format('H:i') ?></h6></td>
                 </tr>
                 <tr>
                     <td>Lugar: <?= $coluna["enderecoOcorrencia"]; ?><br> <?= $coluna['DescricaoCrime'] ?></td>
