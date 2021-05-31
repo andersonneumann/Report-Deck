@@ -26,8 +26,8 @@
                <div class="col-md-6 pr-md-5 itemsincenter ">
                    <form name="cadastro" action="caccout.php" method="POST">
                      <!--Inserir ação aqui-->
-                     <div class="form-group">
-                         <input id="usr" name="usr" type="text" class="form-control" placeholder="Seu nome completo" required>
+                     <div class="form-group">   
+                        <input id="usr" name="usr" type="text" class="form-control" placeholder="Seu nome completo" required>
                      </div>
                      <div class="form-group">
                         <input id="email" name="email" type="email" class="form-control" placeholder="Seu Email" required>
@@ -39,7 +39,20 @@
                         <input id="cpf" name="cpf" type="text" class="form-control" placeholder="CPF" required>
                      </div>
                      <div class="form-group">
-                        <input id="genero" name="genero" type="text" class="form-control" placeholder="Genero" required>
+                        <select id="genero" class="form-control" name="genero" placeholder="Gênero">
+                              <option value="" disabled selected>Gênero</option>
+                           <optgroup label="Cisgênero">
+                              <option value="Masculino">Masculino</option>
+                              <option value="Feminino">Feminino</option>
+                           </optgroup>
+                           <optgroup label="Transsexual">
+                              <option value="Homem Trans">Homem Trans</option>
+                              <option value="Mulher Trans">Mulher Trans</option>
+                           </optgroup>
+                           <optgroup label="Outros">
+                              <option value="Não-Binário">Não-Binário</option>
+                           </optgroup>
+                        </select>
                      </div>
                      <div class="form-group">
                         <input id="nasc" name="nasc" type="date" class="form-control" placeholder="Genero" required>
