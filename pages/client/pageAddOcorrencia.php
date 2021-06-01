@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet">
     </head>
     <body>
+      <br>
             <h2 class="text-center textoTemaEscuro">Reportar Ocorrência:</h2>
             <p class="text-center novaOcorrencia textoTemaEscuro">Os campos com * são obrigatórios!</p>
             <div class="novaOcorrencia">

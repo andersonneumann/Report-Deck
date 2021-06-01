@@ -34,10 +34,12 @@ session_start();
                    <form action="log_in.php" method="POST">
                      <!--Inserir ação aqui-->
                      <div class="form-group">
-                         <input type="text" id="user" name="user" class="form-control" placeholder="E-mail">
+                       <h4>E-Mail</h4>
+                         <input type="text" id="user" name="user" class="form-control">
                      </div>
+                     <h4>Senha</h4>
                      <div class="form-group">
-                        <input type="password" id="passwd" name="passwd" class="form-control" placeholder="Senha">
+                        <input type="password" id="passwd" name="passwd" class="form-control">
                      </div>
                      <div class="form-group">
                         <center><input type="submit" value="Entrar" class="btn btn-primary py-3 px-5"></center>

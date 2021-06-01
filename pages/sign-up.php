@@ -14,7 +14,7 @@
         include_once("navbar.php");
       ?>
       <section class="ftco-section contact-section ftco-degree-bg ">
-         
+
          <br>
          <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
@@ -26,21 +26,26 @@
                <div class="col-md-6 pr-md-5 itemsincenter ">
                    <form name="cadastro" action="caccout.php" method="POST">
                      <!--Inserir ação aqui-->
-                     <div class="form-group">   
-                        <input id="usr" name="usr" type="text" class="form-control" placeholder="Seu nome completo" required>
-                     </div>
+                     <h4>Nome</h4>
                      <div class="form-group">
-                        <input id="email" name="email" type="email" class="form-control" placeholder="Seu Email" required>
+                        <input id="usr" name="usr" type="text" class="form-control" required>
                      </div>
+                     <h4>E-Mail</h4>
                      <div class="form-group">
-                        <input id="rg" name="rg" type="text" class="form-control" placeholder="RG" required>
+                        <input id="email" name="email" type="email" class="form-control" required>
                      </div>
+                     <h4>RG</h4>
                      <div class="form-group">
-                        <input id="cpf" name="cpf" type="text" class="form-control" placeholder="CPF" required>
+                        <input id="rg" name="rg" type="text" class="form-control" required>
                      </div>
+                     <h4>CPF</h4>
                      <div class="form-group">
-                        <select id="genero" class="form-control" name="genero" placeholder="Gênero">
-                              <option value="" disabled selected>Gênero</option>
+                        <input id="cpf" name="cpf" type="text" class="form-control" required>
+                     </div>
+                     <h4>Gênero</h4>
+                     <div class="form-group">
+                        <select id="genero" class="form-control" name="genero">
+                              <option value="" disabled selected>Selecione o Gênero</option>
                            <optgroup label="Cisgênero">
                               <option value="Masculino">Masculino</option>
                               <option value="Feminino">Feminino</option>
@@ -54,17 +59,21 @@
                            </optgroup>
                         </select>
                      </div>
+                     <h4>Data de Nascimento</h4>
                      <div class="form-group">
-                        <input id="nasc" name="nasc" type="date" class="form-control" placeholder="Genero" required>
+                        <input id="nasc" name="nasc" type="date" class="form-control" required>
                      </div>
+                     <h4>Telefone</h4>
                      <div class="form-group">
-                        <input id="fone" name="fone" type="text" class="form-control" placeholder="Telefone" required>
+                        <input id="fone" name="fone" type="text" class="form-control" required>
                      </div>
+                     <h4>Senha</h4>
                      <div class="form-group">
-                        <input id="senha1" name="senha1" type="password" class="form-control" name="senha1" placeholder="Senha" required>
+                        <input id="senha1" name="senha1" type="password" class="form-control" name="senha1" required>
                      </div>
+                     <h4>Confirmar Senha</h4>
                      <div class="form-group">
-                        <input id="senha2" name="senha2" type="password" class="form-control" name="senha2" placeholder="Confirme a Senha" required>
+                        <input id="senha2" name="senha2" type="password" class="form-control" name="senha2" required>
                      </div>
                      <div class="form-group">
                         <center><input id="signup" type="submit" value="Cadastrar" class="btn btn-primary py-3 px-5"></center>
@@ -83,7 +92,7 @@
       ?>
       <script>
          function validaSenha(e){
-            
+
             senha1 = document.cadastro.senha1.value
             senha2 = document.cadastro.senha2.value
             console.log(senha2);
