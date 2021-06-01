@@ -24,8 +24,11 @@ a{
 div.navegacao{
   width: 130px;
   margin: 20px;
-  border-radius: 25px;
+  border-radius: 10px;
   border: 2px solid #333333;
+	box-shadow: 0px 1px 17px 3px rgba(199,199,199,0.9);
+-webkit-box-shadow: 0px 1px 17px 3px rgba(199,199,199,0.9);
+-moz-box-shadow: 0px 1px 17px 3px rgba(199,199,199,0.9);
   float: left;
 }
 img.imgNavBar{
