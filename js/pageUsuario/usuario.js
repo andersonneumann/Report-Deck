@@ -28,7 +28,7 @@ function getCookie(cname) {
 function exibirMenuDeOpcoes(){
   $(".appendContentClick").html("");
   var nomeUsuario = getCookie('user');
-  
+
   var itens = [["Mapa de Ocorrências", "Nova Ocorrência"], ["Visualizar Ocorrências", "<br>Meu Perfil"], ["Configurações", "Sair"]];
   var imagens = [["mapaBranco.png", "novaOcorrenciaBranco.png"],["visualizarBranco.png", "perfilBranco.png"],["configBranco.png", "sairBranco.png"]]
   var action = [["exibirMapaDeOcorrencias()","criarNovaOcorrencia()"],["visualizarOcorrencias()","exibirPerfil()"],["exibirConfigs()","sair()"]]
@@ -75,8 +75,7 @@ function exibirConfigs(){
 }
 
 function sair(){
-  $(".appendContentClick").html("");
-  window.location.replace("../../pages/log_out.php");
+  window.location = 'index.php';
 }
 
 // Exibir preview da imagem na criação da ocorrência:

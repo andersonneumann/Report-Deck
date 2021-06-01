@@ -2,7 +2,8 @@
 	session_start();
 	if (isset($_SESSION['enviadoSucesso'])):
 	?>
-	<html><head>
+<html>
+		<head>
         <title>Report Deck</title>
         <script type="text/javascript" src="../../js/pageUsuario/jquery.js"></script>
         <script type="text/javascript" src="../../js/pageUsuario/usuario.js"></script>
@@ -14,8 +15,11 @@
         <link rel="stylesheet" type="text/css" href="../../css/styleUser.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet">
     </head>
-    <body class="textoTemaEscuro">
-    	<img style="margin: 10%" src="../../images/confere.png" width="50%"><br>
-    	<div style="margin: 5%">Sua ocorrência foi encaminhada para análise e em breve estará disponível. Obrigado pela contribuição!</div>
-    </body></html>
+    <body class="iframeSucesso">
+			<br><br>
+				<img class="mx-auto d-block espera" src="../../images/waiting.png">
+				<h6 class="text-center">Obrigado por enviar!<br>Sua ocorrência está em análise pelos nossos administradores, antes de ser exibida para todos os usuários.</h6>
+				<!--<button type="button" class="btn btn-primary mx-auto d-block" onclick="window.location = '../pageUsuario.php'">Voltar</button>-->
+    </body>
+</html>
 <?php endif; ?>

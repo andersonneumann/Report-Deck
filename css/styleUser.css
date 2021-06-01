@@ -32,6 +32,12 @@ img.imgNavBar{
   width: 80%;
   padding: 10px;
 }
+img.espera{
+	width: 60%;
+}
+img.waiting{
+	width: 60px;
+}
 .descricaoNavBar{
   text-align: center;
   padding-left: 5px;
@@ -67,4 +73,16 @@ input::-webkit-file-upload-button{
 	background-color: #f0f0f0;
 	border: 1px solid #333333;
 	color: #333333;
+}
+.boxOcorrencia{
+	width: 90%;
+	padding: 20px 5px 20px 5px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border-radius: 5px;
+	border: 1px solid #919191;
+	background-color: #f5f5f5;
+}
+.ocorrenciaGrave{
+	border: 1px solid red;
 }
