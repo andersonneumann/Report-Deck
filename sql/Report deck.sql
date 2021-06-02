@@ -38,29 +38,28 @@ create table Crimes(
 
 -- Cria a tabela ocorrência com seus respectivos campos
 create table Ocorrencia(
-	Codigo int primary key,
-    Titulo varchar(100) not null,
+	Codigo int auto_increment,
     Crime int not null,
-    grauDoCrime int not null,
-    DescricaoCrime text,
-    Observacao text,
+    Titulo varchar(100) not null,
+    DescricaoCrime text, 
     enderecoOcorrencia varchar(300),
     DataOcorrencia date,
     HoraOcorrenciaApx time,
+    Imagem mediumblob,
+    ImagemAprovada boolean,
+    OcorrenciaAprovada boolean,
     cidadao char(11) not null,
+    primary key(Codigo),
 -- vincula os campos da tabela ocorrência como chave estrangeira de outras tabelas;
     foreign key(Crime) references Crimes(id),
     foreign key(cidadao) references Cidadao(CPF)
 );
 
--- Cria a tabela imagem com seus respectivos campos;
-create table imagem(
-	codigo int primary key,
-    codOcorrencia int not null,
-    statusImagem Boolean not null,
-    Imagem mediumblob,
--- vincula as imagens com a ocorrência que pertence;
-    foreign key(codOcorrencia) references Ocorrencia(codigo)
+-- Cria a tabela GrauProximidadeCrime com seus respectivos campos;
+create table GrauProximidadeCrime(
+	id int auto_increment,
+    descricaoGrau varchar(200),
+    primary key(id)
 );
 
 -- Cria a tabela atualização com seus respectivos campos;
@@ -74,4 +73,24 @@ create table Atualizacao(
     foreign key(cidadao) references Cidadao(CPF),
     foreign key(CodOcorrencia) references Ocorrencia(Codigo)
 );
+
+alter table Ocorrencia auto_increment=01;
+alter table GrauProximidadeCrime auto_increment=01;
+
+insert into GrauProximidadeCrime (descricaograu) values
+('Eu fui a vítima da ocorrência'),
+('Eu presenciei a ocorrência'),
+('Eu soube da ocorrência'),
+('Eu conheço a vítima da ocorrência');
+
+INSERT INTO `Crimes` (`id`, `Nome`, `Nivel`) VALUES
+(1, 'Assalto', '1'),
+(2, 'Sequestro', '2'),
+(3, 'Homicidio', '3'),
+(4, 'Estupro', '3'),
+(5, 'Arrastão', '2'),
+(6, 'Trafico', '3');
+
+
+
 
