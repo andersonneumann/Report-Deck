@@ -66,7 +66,21 @@ function visualizarOcorrencias(){
 
 function exibirPerfil(){
   $(".appendContentClick").html("");
-  alert("Exibindo perfil");
+  var val ='<br><h3 class="text-center textoTemaEscuro">Meu Perfil:</h3>';
+  val +='<p class="text-center novaOcorrencia textoTemaEscuro">Favor alterar os campos que deseja:</p><div class="novaOcorrencia"><form>';
+  val +='<div class="form-group"><label for="nomeUsuario" class="textoTemaEscuro">Nome:</label><input id="nomeUsuario" name="nomeUsuario" type="text" class="form-control styleForm" value="[getNomeUsuario]"></div>';
+  val +='<div class="form-group"><label for="emailUsuario" class="textoTemaEscuro">E-Mail:</label><input id="emailUsuario" name="emailUsuario" type="email" class="form-control styleForm" value="[getEmailUsuario]"></div>';
+  val +='<div class="form-group"><label for="RGUsuario" class="textoTemaEscuro">RG:</label><input id="RGUsuario" name="RGUsuario" type="text" class="form-control styleForm" value="[getRGUsuario]"></div>';
+  val +='<div class="form-group"><label for="CPFUsuario" class="textoTemaEscuro">CPF:</label><input id="CPFUsuario" name="CPFUsuario" type="text" class="form-control styleForm" value="[getCPFUsuario]"></div>';
+  val +='<div class="form-group"><label for="generoUsuario" class="textoTemaEscuro">Gênero:</label><select id="generoUsuario" name="generoUsuario" class="form-control styleForm"><option selected="" disabled="" hidden="">[getGeneroUsuario]</option>';
+  val +='<optgroup label="Cisgênero"></optgroup><option value="masculino">Masculino</option><option value="Feminino">Feminino</option><optgroup label="Transsexual"></optgroup><option value="homemTrans">Homem Trans</option>';
+  val +='<option value="mulherTrans">Mulher Trans</option><optgroup label="Outros"></optgroup><option value="naoBinarioTrans">Não Binário</option></select></div>';
+  val +='<div class="form-group"><label for="nctoUsuario" class="textoTemaEscuro">Data de Nascimento:</label><input id="nctoUsuario" name="nctoUsuario" type="date" class="form-control styleForm"></div>';
+  val +='<div class="form-group"><label for="telefoneUsuario" class="textoTemaEscuro">Telefone:</label><input id="telefoneUsuario" name="telefoneUsuario" type="text" class="form-control styleForm" value="[getTelefoneUsuario]"></div>';
+  val +='<div class="form-group"><label for="senhaUsuario" class="textoTemaEscuro">Senha:</label><input id="senhaUsuario" name="senhaUsuario" type="password" class="form-control styleForm"></div>';
+  val +='<div class="form-group"><label for="confirmarSenhaUsuario" class="textoTemaEscuro">Confirmar Senha:</label><input id="confirmarSenhaUsuario" name="confirmarSenhaUsuario" type="password" class="form-control styleForm"></div>';
+  val +='<br><button type="submit" class="btn btn-secondary mx-auto d-block">Atualizar Dados</button><br></form></div>';
+  $(".appendContentClick").append(val);
 }
 
 function exibirConfigs(){
