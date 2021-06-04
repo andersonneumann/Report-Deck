@@ -2,11 +2,11 @@
 session_start();
 include '../connect.php';
 //SQL de apresentação de ocorrências
-$sql = "SELECT Codigo, Titulo, Crimes.nome, grauDoCrime, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx "
-        . "FROM Ocorrencia "
-        . "INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime";
+$sql = "SELECT Codigo, Titulo, Crimes.nome, grauDoCrime, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM ((Ocorrencia "
+  ."INNER JOIN Cidadao ON Ocorrencia.Cidadao = Cidadao.cpf) "
+  ."INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime) ORDER BY Codigo";
 //Codigo que irá executar o script SQL
-$result = mysqli_query($conn, $sql);
+$result = $conn->query($sql);
 ?>
 <html>
     <script type="text/javascript" src="../../js/pageUsuario/jquery.js"></script>
@@ -22,19 +22,31 @@ $result = mysqli_query($conn, $sql);
          * onde tem os "<?= ?>"
          * São onde estarão os dados!!!
          */
-        if (mysqli_fetch_assoc($result)):
+        if ($result->num_rows > 0):
             while ($coluna = $result->fetch_assoc()):
-		      $data = new DateTime($coluna['DataOcorrencia']);
-		      $hora = new DateTime($coluna['HoraOcorrenciaApx']);
-          $gravidadeCrime = "secondary";
-          $boxOcorrencia = "boxOcorrencia"
+              $data = new DateTime($coluna['DataOcorrencia']);
+              $hora = new DateTime($coluna['HoraOcorrenciaApx']);
+              //Pegando Nascimento
+              $Nascimento = new DateTime($coluna['Nascimento']);
+              $ano = $Nascimento->format('Y');
+              $ano = $ano + 0;
+              //Pegando ano atual
+              $hoje = date("Y");
+              $hoje = $hoje+0;
+              $idade = $hoje - $ano;
+              $gravidadeCrime = "secondary";
+              $boxOcorrencia = "boxOcorrencia";
+              if ($idade <= 18) {
+                $gravidadeCrime = "danger";
+                $boxOcorrencia = "boxOcorrencia ocorrenciaGrave";
+              }
+              /*
+              boxOcorrencia: Define a cor da caixa onde estará a ocorrencia. Se a ocorrência for normal, deverá receber apenas "boxOcorrencia"
+              Se a ocorrência for grave, boxOcorrencia deverá receber "boxOcorrencia ocorrenciaGrave"
 
-          //boxOcorrencia: Define a cor da caixa onde estará a ocorrencia. Se a ocorrência for normal, deverá receber apenas "boxOcorrencia"
-          //Se a ocorrência for grave, boxOcorrencia deverá receber "boxOcorrencia ocorrenciaGrave"
-
-          //gravidadeCrime: Define a cor do botão para expandir a ocorrência. Se a ocorrência for normal, deverá receber "secondary"
-          //Se a ocorrência for grave, gravidadeCrime deverá receber "danger"
-
+              gravidadeCrime: Define a cor do botão para expandir a ocorrência. Se a ocorrência for normal, deverá receber "secondary"
+              Se a ocorrência for grave, gravidadeCrime deverá receber "danger"
+              */
                 ?>
                 <div class="<?= $boxOcorrencia?>">
                   <h4 class="text-center"><?= $coluna["nome"]; ?></h4>
@@ -42,7 +54,7 @@ $result = mysqli_query($conn, $sql);
                   <button type="button" class="btn btn-<?= $gravidadeCrime?> mx-auto d-block" data-toggle="modal" data-target="#idOcorrencia<?= $coluna['Codigo']?>">
                     Ver informações do Ocorrido
                   </button>
-                  <h6 class="text-center">Genero: [PH] - Idade: [PH]</h6>
+                  <h6 class="text-center">Genero: <?= $coluna['Genero'] ?> - Idade: <?= $idade?></h6>
                 </div>
                 <div class="modal fade" id="idOcorrencia<?= $coluna['Codigo']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -66,6 +78,9 @@ $result = mysqli_query($conn, $sql);
                   </div>
                 </div>
             <?php endwhile;
-        endif; ?>
+        else:
+          echo "Nenhum Resultado encontrado.";
+        endif;
+        $conn->close();?>
     </table>
 </html>
