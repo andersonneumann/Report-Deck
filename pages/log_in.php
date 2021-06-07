@@ -2,7 +2,7 @@
 session_start();
 include './connect.php';
 if (empty($_POST['user']) || empty($_POST['passwd'])){
-    header('Location: kkkk.php');
+    header('Location: error.php');
     exit();
 }
 $usuario = mysqli_real_escape_string($conn,$_POST['user']);

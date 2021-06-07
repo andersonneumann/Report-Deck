@@ -8,7 +8,7 @@ use ReportDeck;
 Create table Cidadao(
     CPF char(11) not null,
 	ID int not null,
-	Genero varchar(9) not null,
+	Genero varchar(20) not null,
 	Tema boolean, 
 	Nascimento date not null,
     Nome_completo varchar(200) not null,

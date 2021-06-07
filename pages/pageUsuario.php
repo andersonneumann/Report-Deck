@@ -16,8 +16,21 @@
     <body>
         <?php
         include './connect.php';
+        $sql_select = "SELECT * FROM Cidadao where cpf =".$_SESSION['cpf']."";
+        //Codigo que irá executar o script SQL
+        $result = $conn->query($sql_select);
         //Captura e armazena em cookie o nome de usuário
         setcookie("user", $_SESSION['user']);
+        if ($result->num_rows > 0){
+            while ($coluna = $result->fetch_assoc()){
+                setcookie("genero", $coluna['Genero']);
+                setcookie("nascimento", $coluna['Nascimento']);
+                setcookie("nome_completo", $coluna['Nome_completo']);
+                setcookie("telefone", $coluna['Telefone']);
+                setcookie("senha", $coluna['Senha']);
+                setcookie("email", $coluna['Email']);
+            }
+        }
         ?>
         <a onclick="loadPage()"><div class="topo sticky-top"><img src="../images/rdlogowhite.png" class="rounded mx-auto d-block logoRD"></div></a>
         <div class="appendContentClick"></div>
