@@ -1,5 +1,3 @@
-drop database reportdeck;
-
 create database ReportDeck;
 
 use ReportDeck;
@@ -9,7 +7,7 @@ Create table Cidadao(
     CPF char(11) not null,
 	ID int not null,
 	Genero varchar(20) not null,
-	Tema boolean, 
+	Tema boolean,
 	Nascimento date not null,
     Nome_completo varchar(200) not null,
     Telefone varchar(11),
@@ -18,7 +16,7 @@ Create table Cidadao(
     Email varchar(200) not null,
     primary key(CPF, ID));
 
--- Cria a tabela administrador com seus respectivos campos;    
+-- Cria a tabela administrador com seus respectivos campos;
 Create table Administrador(
     Codigo int not null,
 	NomeUsuarioADM varchar(50)  not null,
@@ -60,7 +58,7 @@ create table Ocorrencia(
     apvGenero boolean,
     apvIdade boolean,
     cidadao char(11) not null,
-    ocorrenciaAprovada boolean,
+    ocorrenciaAprovada int,
     primary key(Codigo),
 -- vincula os campos da tabela ocorrência como chave estrangeira de outras tabelas;
     foreign key(Crime) references Crimes(id),
@@ -95,4 +93,3 @@ insert into GrauProximidadeCrime (id,descricaograu) values
 (2, 'Eu presenciei a ocorrência'),
 (3, 'Eu soube da ocorrência'),
 (4, 'Eu conheço a vítima da ocorrência');
-

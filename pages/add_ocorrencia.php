@@ -24,8 +24,8 @@ $imagem = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
 
 
 //Query que será executada
-$query = "INSERT INTO `Ocorrencia` (`Titulo`, `Crime`, `grauDoCrime`, `DescricaoCrime`, `Observacao`, `enderecoOcorrencia`, `Imagem`, `DataOcorrencia`, `HoraOcorrenciaApx`, `cidadao`) "
-        . "VALUES ('$titulo', '$crime', '$grau', '$desc', NULL, '$endereco', '$imagem', '$data', '$hora', '$cpf')";
+$query = "INSERT INTO `Ocorrencia` (`Titulo`, `Crime`, `grauDoCrime`, `DescricaoCrime`, `Observacao`, `enderecoOcorrencia`, `Imagem`, `DataOcorrencia`, `HoraOcorrenciaApx`, `cidadao`, `OcorrenciaAprovada`) "
+        . "VALUES ('$titulo', '$crime', '$grau', '$desc', NULL, '$endereco', '$imagem', '$data', '$hora', '$cpf', 2)";
 if (mysqli_query($conn, $query)) {
 	//Se o script for executado corretamente
 	$_SESSION['enviadoSucesso'] = true;

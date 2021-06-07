@@ -2,13 +2,14 @@
 session_start();
 include '../connect.php';
 //SQL de apresentação de ocorrências
-$sql = "SELECT Codigo, Titulo, Crimes.nome, grauproximidadecrime.id, grauDoCrime, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia "
+$sql = "SELECT Codigo, Titulo, Crimes.nome, grauproximidadecrime.id, grauDoCrime, OcorrenciaAprovada, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia "
   ."INNER JOIN Cidadao ON Ocorrencia.Cidadao = Cidadao.cpf)"
   ."INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime)"
   ."INNER JOIN grauproximidadecrime on grauproximidadecrime.id = ocorrencia.grauDoCrime)"
   ."ORDER BY Codigo";
 //Codigo que irá executar o script SQL
 $result = $conn->query($sql);
+
 ?>
 <html>
     <script type="text/javascript" src="../../js/pageUsuario/jquery.js"></script>
@@ -18,7 +19,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" type="text/css" href="../../css/styleUser.css">
     <!-- Aqui o conteúdo do arquivo -->
     <table class="textoTemaEscuro">
-      <br><h4 class="text-center">Ocorrências:<h4>
+      <br><h4 class="text-center">Minhas Ocorrências:<h4>
         <?php
         /* ATENÇÃO
          * onde tem os "<?= ?>"
@@ -50,11 +51,29 @@ $result = $conn->query($sql);
 
               $gravidadeCrime = "secondary";
               $boxOcorrencia = "boxOcorrencia";
+
+              $statusAprovacao = $coluna["OcorrenciaAprovada"];
+
+              $statusOc;
+
+              // O padrão está com null em Ocorrencia.OcorrenciaAprovada
+              // Alterar o banco de dados, para receber o valor de 1 a 3
+              // 1 = Aprovada
+              // 2 = Em Análise
+              // 3 = Reprovada
+
+              if ($statusAprovacao == 1){
+                $statusOc = "Aprovada";
+              }else if ($statusAprovacao == 2){
+                $statusOc = "Em Análise";
+              }else if ($statusAprovacao == 3){
+                $statusOc = "Reprovada";
+              }
+
               if ($idade < 18 || $coluna["nome"] == "Estupro") {
                 $gravidadeCrime = "danger";
                 $boxOcorrencia = "boxOcorrencia ocorrenciaGrave";
               }
-
                 ?>
                 <div class="<?= $boxOcorrencia?>">
                   <h4 class="text-center"><?= $coluna["nome"]; ?></h4>
@@ -62,8 +81,7 @@ $result = $conn->query($sql);
                   <button type="button" class="btn btn-<?= $gravidadeCrime?> mx-auto d-block" data-toggle="modal" data-target="#idOcorrencia<?= $coluna['Codigo']?>">
                     Ver informações do Ocorrido
                   </button>
-                  <h6 class="text-center">Genero: <?= $coluna['Genero'] ?> - Idade: <?= $idade?></h6>
-                  <h6 class="text-center grauProx"><?= $varCrime ?></h6>
+                  <h6 class="text-center">Ocorrência <?= $statusOc?></h6>
                 </div>
                 <div class="modal fade" id="idOcorrencia<?= $coluna['Codigo']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">

@@ -121,7 +121,7 @@ function exibirConfigs(){
       exibirTemaCorrespondente();
 
     }else{
-      
+
       temaUsuario = false;
       $('#textoTema').html("Claro");
       exibirTemaCorrespondente();
@@ -176,7 +176,8 @@ function exibirTemaCorrespondente(){
 
 function exibirPerfil(){
   $(".appendContentClick").html("");
-  alert("Exibindo Perfil");
+  var val = '<iframe src="client/vizualizaOcorrenciasPerfil.php" width="100%" height="100%" frameBorder="0" title="Iframe Example"></iframe>';
+  $(".appendContentClick").append(val);
 }
 
 function sair(){
