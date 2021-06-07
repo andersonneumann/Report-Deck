@@ -6,7 +6,7 @@ use ReportDeck;
 Create table Cidadao(
     CPF char(11) not null,
 	ID int not null,
-	Genero varchar(9) not null,
+	Genero varchar(20) not null,
 	Tema boolean, 
 	Nascimento date not null,
     Nome_completo varchar(200) not null,
@@ -36,30 +36,34 @@ create table Crimes(
     Nivel char(1)
 );
 
+create table GrauProximidadeCrime(
+	id int not null,
+    descricaoGrau varchar(200),
+    primary key(id)
+);
+
 -- Cria a tabela ocorrência com seus respectivos campos
 create table Ocorrencia(
 	Codigo int auto_increment,
-    Crime int not null,
     Titulo varchar(100) not null,
-    DescricaoCrime text, 
+    Crime int not null,
+    grauDoCrime int not null,
+    DescricaoCrime text,
+    Observacao text,
     enderecoOcorrencia varchar(300),
-    DataOcorrencia date,
-    HoraOcorrenciaApx time,
     Imagem mediumblob,
     ImagemAprovada boolean,
-    OcorrenciaAprovada boolean,
+    DataOcorrencia date,
+    HoraOcorrenciaApx time,
+    apvGenero boolean,
+    apvIdade boolean,
     cidadao char(11) not null,
+    ocorrenciaAprovada int,
     primary key(Codigo),
 -- vincula os campos da tabela ocorrência como chave estrangeira de outras tabelas;
     foreign key(Crime) references Crimes(id),
+    foreign key(grauDoCrime) references GrauProximidadeCrime(id),
     foreign key(cidadao) references Cidadao(CPF)
-);
-
--- Cria a tabela GrauProximidadeCrime com seus respectivos campos;
-create table GrauProximidadeCrime(
-	id int auto_increment,
-    descricaoGrau varchar(200),
-    primary key(id)
 );
 
 -- Cria a tabela atualização com seus respectivos campos;
@@ -75,22 +79,18 @@ create table Atualizacao(
 );
 
 alter table Ocorrencia auto_increment=01;
-alter table GrauProximidadeCrime auto_increment=01;
-
-insert into GrauProximidadeCrime (descricaograu) values
-('Eu fui a vítima da ocorrência'),
-('Eu presenciei a ocorrência'),
-('Eu soube da ocorrência'),
-('Eu conheço a vítima da ocorrência');
 
 INSERT INTO `Crimes` (`id`, `Nome`, `Nivel`) VALUES
 (1, 'Assalto', '1'),
 (2, 'Sequestro', '2'),
 (3, 'Homicidio', '3'),
-(4, 'Estupro', '3'),
+(4, 'Estupro', '4'),
 (5, 'Arrastão', '2'),
 (6, 'Trafico', '3');
 
-
-
+insert into GrauProximidadeCrime (id,descricaograu) values
+(1, 'Eu fui a vítima da ocorrência'),
+(2, 'Eu presenciei a ocorrência'),
+(3, 'Eu soube da ocorrência'),
+(4, 'Eu conheço a vítima da ocorrência');
 

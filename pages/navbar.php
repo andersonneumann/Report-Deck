@@ -8,7 +8,7 @@
          <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a id="homeP" href="index.php" class="nav-link">Início</a></li>
             <li class="nav-item"><a id="aboutP" href="index.php#about" class="nav-link">Sobre Nós</a></li>
-            <li class="nav-item cta"><a id="buttonR" href="comecar.php" class="nav-link start"><span id="return">VOLTAR PARA O LOGIN</span></a></li>
+            <li class="nav-item cta"><a id="buttonR" href="comecar.php" class="nav-link start"><span id="return">COMEÇAR</span></a></li>
          </ul>
       </div>
    </div>   
