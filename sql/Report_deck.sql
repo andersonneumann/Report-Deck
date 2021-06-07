@@ -1,5 +1,3 @@
-drop database reportdeck;
-
 create database ReportDeck;
 
 use ReportDeck;
