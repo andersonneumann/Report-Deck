@@ -86,7 +86,7 @@ INSERT INTO `Crimes` (`id`, `Nome`, `Nivel`) VALUES
 (3, 'Homicidio', '3'),
 (4, 'Estupro', '4'),
 (5, 'Arrastão', '2'),
-(6, 'Trafico', '3');
+(6, 'Trafico de Drogas', '3');
 
 insert into GrauProximidadeCrime (id,descricaograu) values
 (1, 'Eu fui a vítima da ocorrência'),
