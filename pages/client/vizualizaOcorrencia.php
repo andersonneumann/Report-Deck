@@ -5,8 +5,7 @@ include '../connect.php';
 $sql = "SELECT Codigo, Titulo, Crimes.nome, grauproximidadecrime.id, grauDoCrime, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia "
   ."INNER JOIN Cidadao ON Ocorrencia.Cidadao = Cidadao.cpf)"
   ."INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime)"
-  ."INNER JOIN grauproximidadecrime on grauproximidadecrime.id = ocorrencia.grauDoCrime)"
-  ."ORDER BY Codigo";
+  ."INNER JOIN grauproximidadecrime on grauproximidadecrime.id = ocorrencia.grauDoCrime) ORDER BY Codigo desc";
 //Codigo que irá executar o script SQL
 $result = $conn->query($sql);
 ?>
