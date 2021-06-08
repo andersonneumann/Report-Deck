@@ -54,9 +54,8 @@ function exibirMenuDeOpcoes(){
 }
 
 function exibirMapaDeOcorrencias(){
-  $(".appendContentClick").html("");
   val = getCookie('ocorrencias');
-  alert("Exibindo mapa de Ocorrências");
+  alert("Página em construção...");
   exibirTemaCorrespondente();
 }
 
