@@ -36,7 +36,7 @@ $result = $conn->query($sql);
               $idCrime = $coluna['grauDoCrime'];
 
               //Variável que está armazenando se a imagem foi aprovada ou não
-              $imgAprovada = $coluna['ImagemAprovada']; 
+              $imgAprovada = $coluna['ImagemAprovada'];
 
               if($idCrime == 1){
                 $varCrime = "Vítima";
@@ -73,12 +73,28 @@ $result = $conn->query($sql);
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
-                        <br>
-                        <form action="bloqueiaImagem.php" method="POST">
-                          <input type="submit"  class="mx-auto d-block btn btn-danger" value="Bloquear Imagem">
+                        <img id="imagemOcorrenciaVerificar" class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
+                        <form id="metodoForulario" method="POST">
+                          <input type="hidden" id="valorImagem" name="idOcorrencia" value="<?= $imgAprovada ?>">
                           <input type="hidden" id="idOcorrencia" name="idOcorrencia" value="<?= $coluna['Codigo'] ?>">
+                          <input type="submit"  id="lockUnlock" class="mx-auto d-block btn btn-success" >
                         </form>
+                        <script>
+                          if ($("#valorImagem").val() == 1){
+                            $('#metodoForulario').attr('action', 'desbloqueiaImagem.php');
+                            $("#imagemOcorrenciaVerificar").addClass("imagemBorrada");
+                            $("#lockUnlock").removeClass("btn-danger");
+                            $("#lockUnlock").addClass("btn-success");
+                            $("#lockUnlock").val("Desbloquear Imagem");
+
+                          }else{
+                            $('#metodoForulario').attr('action', 'bloqueiaImagem.php');
+                            $("#imagemOcorrenciaVerificar").removeClass("imagemBorrada");
+                            $("#lockUnlock").addClass("btn-success");
+                            $("#lockUnlock").addClass("btn-danger");
+                            $("#lockUnlock").val("Bloquear Imagem");
+                          }
+                        </script>
                         <h6 class="text-center"><?= $coluna["enderecoOcorrencia"]; ?><br></h6>
                         <h6 class="text-center"><?= $coluna["nome"]; ?> <br><?= $data->format('d/m/Y') ?> <?= $hora->format('H:i') ?></h6>
                         <h6 class="text-center">"<?= $coluna['DescricaoCrime'] ?>"<br></h6>

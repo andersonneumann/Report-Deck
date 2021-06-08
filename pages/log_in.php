@@ -28,6 +28,7 @@ if ($row == 1){ //Se encontrar linhas
     exit();
 }else if($usuario == "admin" and $senha= "admin"){
     $_SESSION['user'] = $usuario; //Irá capturar o nome da sessão
+    $_SESSION['cpf'] = "";
     header('Location: pageAdmin.php');
     exit();
 }

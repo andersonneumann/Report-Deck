@@ -122,3 +122,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+.imagemBorrada{
+	-webkit-filter: blur(20px);
+	filter: blur(20px);
+}

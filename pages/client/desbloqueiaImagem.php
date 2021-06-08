@@ -4,7 +4,7 @@
 
 	$id = mysqli_real_escape_string($conn, $_POST['idOcorrencia']);
 
-	$query = "UPDATE Ocorrencia SET ImagemAprovada = 1 WHERE Ocorrencia.Codigo = $id";
+	$query = "UPDATE Ocorrencia SET ImagemAprovada = 0 WHERE Ocorrencia.Codigo = $id";
 
 	if (!mysqli_query($conn, $query)){
     	echo mysqli_error($conn);
