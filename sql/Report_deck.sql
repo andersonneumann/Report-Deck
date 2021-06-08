@@ -16,19 +16,6 @@ Create table Cidadao(
     Email varchar(200) not null,
     primary key(CPF, ID));
 
--- Cria a tabela administrador com seus respectivos campos;
-Create table Administrador(
-    Codigo int not null,
-	NomeUsuarioADM varchar(50)  not null,
-    Senha varchar(50)  not null,
-    NomeCompleto varchar(200)  not null,
-    Endereco varchar(200)  not null,
-    RG char(11)  not null,
-    CPF char(11) not null,
-    Telefone char(11)  not null,
-    Email varchar(200) not null,
-    primary key(Codigo, NomeUsuarioADM));
-
 -- Cria a tabela crimes com seus respectivos campos
 create table Crimes(
 	id int primary key,
