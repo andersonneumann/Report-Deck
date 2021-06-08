@@ -73,10 +73,19 @@ $result = $conn->query($sql);
                       </div>
                       <div class="modal-body">
                         <div class="exibirImagem"></div>
-                        <img class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
+                        <img id='imagem<?= $coluna['Codigo'] ?>' class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
                         <form method="POST">
-                          <input type="hidden" id="valorImagem" name="idOcorrencia" value="<?= $imgAprovada ?>">
+                          <input type="hidden" id="valorImagem<?= $coluna['Codigo'] ?>" name="idOcorrencia" value="<?= $imgAprovada ?>">
                         </form>
+                        <script type="text/javascript">
+                          if ($('#valorImagem<?= $coluna['Codigo']?>').val() == 1) {
+                            // Se for para borrar
+                            $('#imagem<?= $coluna['Codigo'] ?>').addClass('imagemBorrada');
+                          }else if($('#valorImagem').val() == 0){
+                            //Se não for para borrar
+                            $('#imgOcorrencia').removeClass('imagemBorrada');
+                          }
+                        </script>
                         <h6 class="text-center"><?= $coluna["enderecoOcorrencia"]; ?><br></h6>
                         <h6 class="text-center"><?= $coluna["nome"]; ?> <br><?= $data->format('d/m/Y') ?>  <?= $hora->format('H:i') ?></h6>
                         <h6 class="text-center">"<?= $coluna['DescricaoCrime'] ?>"<br></h6>

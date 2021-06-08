@@ -73,26 +73,28 @@ $result = $conn->query($sql);
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img id="imagemOcorrenciaVerificar" class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
-                        <form id="metodoForulario" method="POST">
-                          <input type="hidden" id="valorImagem" name="idOcorrencia" value="<?= $imgAprovada ?>">
+                        <img id="imagemOcorrenciaVerificar<?= $coluna['Codigo']?>" class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
+                        <form id="metodoForulario<?= $coluna['Codigo']?>" method="POST">
+                          <input type="hidden" id="valorImagem<?= $coluna['Codigo']?>" name="idOcorrencia" value="<?= $imgAprovada ?>">
                           <input type="hidden" id="idOcorrencia" name="idOcorrencia" value="<?= $coluna['Codigo'] ?>">
-                          <input type="submit"  id="lockUnlock" class="mx-auto d-block btn btn-success" >
+                          <input type="submit"  id="lockUnlock<?= $coluna['Codigo']?>" class="mx-auto d-block btn btn-success" >
                         </form>
                         <script>
-                          if ($("#valorImagem").val() == 1){
-                            $('#metodoForulario').attr('action', 'desbloqueiaImagem.php');
-                            $("#imagemOcorrenciaVerificar").addClass("imagemBorrada");
-                            $("#lockUnlock").removeClass("btn-danger");
-                            $("#lockUnlock").addClass("btn-success");
-                            $("#lockUnlock").val("Desbloquear Imagem");
+                          if ($('#valorImagem<?= $coluna['Codigo']?>').val() == 1){
+                            //Muda a Action
+                            $('#metodoForulario<?= $coluna['Codigo']?>').attr('action', 'desbloqueiaImagem.php');
+                            //Borra a imagem
+                            $("#imagemOcorrenciaVerificar<?= $coluna['Codigo']?>").addClass("imagemBorrada");
+                            $("#lockUnlock<?= $coluna['Codigo']?>").removeClass("btn-danger");
+                            $("#lockUnlock<?= $coluna['Codigo']?>").addClass("btn-success");
+                            $("#lockUnlock<?= $coluna['Codigo']?>").val("Desborrar Imagem");
 
                           }else{
-                            $('#metodoForulario').attr('action', 'bloqueiaImagem.php');
-                            $("#imagemOcorrenciaVerificar").removeClass("imagemBorrada");
-                            $("#lockUnlock").addClass("btn-success");
-                            $("#lockUnlock").addClass("btn-danger");
-                            $("#lockUnlock").val("Bloquear Imagem");
+                            $('#metodoForulario<?= $coluna['Codigo']?>').attr('action', 'bloqueiaImagem.php');
+                            $("#imagemOcorrenciaVerificar<?= $coluna['Codigo']?>").removeClass("imagemBorrada");
+                            $("#lockUnlock<?= $coluna['Codigo']?>").addClass("btn-success");
+                            $("#lockUnlock<?= $coluna['Codigo']?>").addClass("btn-danger");
+                            $("#lockUnlock<?= $coluna['Codigo']?>").val("Borrar Imagem");
                           }
                         </script>
                         <h6 class="text-center"><?= $coluna["enderecoOcorrencia"]; ?><br></h6>

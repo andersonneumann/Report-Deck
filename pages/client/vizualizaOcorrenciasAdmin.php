@@ -2,7 +2,7 @@
 session_start();
 include '../connect.php';
 //SQL de apresentação de ocorrências
-$sql = "SELECT Codigo, Titulo, Crimes.nome, GrauProximidadeCrime.id, grauDoCrime, OcorrenciaAprovada, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia INNER JOIN Cidadao ON Ocorrencia.Cidadao = Cidadao.cpf) INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime) INNER JOIN GrauProximidadeCrime on GrauProximidadeCrime.id = Ocorrencia.grauDoCrime) WHERE Ocorrencia.ocorrenciaAprovada = 1 or Ocorrencia.ocorrenciaAprovada = 3 ORDER BY Codigo";
+$sql = "SELECT Codigo, Titulo, Crimes.nome, GrauProximidadeCrime.id, grauDoCrime, OcorrenciaAprovada, DescricaoCrime, enderecoOcorrencia, ImagemAprovada, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia INNER JOIN Cidadao ON Ocorrencia.Cidadao = Cidadao.cpf) INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime) INNER JOIN GrauProximidadeCrime on GrauProximidadeCrime.id = Ocorrencia.grauDoCrime) WHERE Ocorrencia.ocorrenciaAprovada = 1 or Ocorrencia.ocorrenciaAprovada = 3 ORDER BY Codigo";
 //Codigo que irá executar o script SQL
 $result = $conn->query($sql);
 
@@ -35,6 +35,8 @@ $result = $conn->query($sql);
               $idade = $hoje - $ano;
 
               $idCrime = $coluna['grauDoCrime'];
+
+              $imgAprovada = $coluna['ImagemAprovada'];
 
               if($idCrime == 1){
                 $varCrime = "Vítima";
@@ -89,7 +91,19 @@ $result = $conn->query($sql);
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
+                        <img id='imagem<?= $coluna['Codigo'] ?>' class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
+                        <form method="POST">
+                          <input type="hidden" id="valorImagem<?= $coluna['Codigo'] ?>" name="idOcorrencia" value="<?= $imgAprovada ?>">
+                        </form>
+                        <script type="text/javascript">
+                          if ($('#valorImagem<?= $coluna['Codigo']?>').val() == 1) {
+                            // Se for para borrar
+                            $('#imagem<?= $coluna['Codigo'] ?>').addClass('imagemBorrada');
+                          }else if($('#valorImagem').val() == 0){
+                            //Se não for para borrar
+                            $('#imgOcorrencia').removeClass('imagemBorrada');
+                          }
+                        </script>
                         <h6 class="text-center"><?= $coluna["enderecoOcorrencia"]; ?><br></h6>
                         <h6 class="text-center"><?= $coluna["nome"]; ?> <br><?= $data->format('d/m/Y') ?>  <?= $hora->format('H:i') ?></h6>
                         <h6 class="text-center">"<?= $coluna['DescricaoCrime'] ?>"<br></h6>
