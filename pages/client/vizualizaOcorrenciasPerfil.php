@@ -2,7 +2,7 @@
 session_start();
 include '../connect.php';
 //SQL de apresentação de ocorrências
-$sql = "SELECT Codigo, Titulo, Crimes.nome, GrauProximidadeCrime.id, grauDoCrime, OcorrenciaAprovada, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia INNER JOIN Cidadao ON Ocorrencia.Cidadao = '".$_SESSION['cpf']."') INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime) INNER JOIN GrauProximidadeCrime on GrauProximidadeCrime.id = Ocorrencia.grauDoCrime) ORDER BY Codigo";
+$sql = "SELECT Codigo, Titulo, Crimes.nome, GrauProximidadeCrime.id, grauDoCrime, OcorrenciaAprovada, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime) INNER JOIN GrauProximidadeCrime on GrauProximidadeCrime.id = Ocorrencia.grauDoCrime) INNER JOIN Cidadao ON Cidadao.CPF = Ocorrencia.cidadao) WHERE Cidadao.CPF = '".$_SESSION['cpf']."' ORDER BY Codigo ASC";
 //Codigo que irá executar o script SQL
 $result = $conn->query($sql);
 
