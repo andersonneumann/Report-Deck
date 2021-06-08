@@ -2,10 +2,7 @@
 session_start();
 include '../connect.php';
 //SQL de apresentação de ocorrências
-$sql = "SELECT Codigo, Titulo, Crimes.nome, grauproximidadecrime.id, grauDoCrime, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia "
-  ."INNER JOIN Cidadao ON Ocorrencia.Cidadao = Cidadao.cpf)"
-  ."INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime)"
-  ."INNER JOIN grauproximidadecrime on grauproximidadecrime.id = ocorrencia.grauDoCrime) ORDER BY Codigo desc";
+$sql = "SELECT Codigo, Titulo, Crimes.nome, GrauProximidadeCrime.id, grauDoCrime, DescricaoCrime, enderecoOcorrencia, Imagem, DataOcorrencia, HoraOcorrenciaApx, Cidadao.Genero, Cidadao.Nascimento FROM (((Ocorrencia INNER JOIN Cidadao ON Ocorrencia.Cidadao = Cidadao.cpf) INNER JOIN Crimes ON Crimes.id = Ocorrencia.Crime) INNER JOIN GrauProximidadeCrime on GrauProximidadeCrime.id = Ocorrencia.grauDoCrime) ORDER BY Codigo desc";
 //Codigo que irá executar o script SQL
 $result = $conn->query($sql);
 ?>
@@ -53,7 +50,6 @@ $result = $conn->query($sql);
                 $gravidadeCrime = "danger";
                 $boxOcorrencia = "boxOcorrencia ocorrenciaGrave";
               }
-
                 ?>
                 <div class="<?= $boxOcorrencia?>">
                   <h4 class="text-center"><?= $coluna["nome"]; ?></h4>
@@ -75,19 +71,26 @@ $result = $conn->query($sql);
                       </div>
                       <div class="modal-body">
                         <img class="imagemOcorrenciaPreview mx-auto d-block" src="data:image/png;base64,<?= base64_encode($coluna['Imagem'])?>" alt="alt"/>
-                        <br><button type="button" class="mx-auto d-block btn btn-danger">Bloquear Imagem</button>
+                        <br><button type="button"  class="mx-auto d-block btn btn-danger" value="bloquear">Bloquear Imagem</button>
                         <h6 class="text-center"><?= $coluna["enderecoOcorrencia"]; ?><br></h6>
                         <h6 class="text-center"><?= $coluna["nome"]; ?> <br><?= $data->format('d/m/Y') ?> <?= $hora->format('H:i') ?></h6>
                         <h6 class="text-center">"<?= $coluna['DescricaoCrime'] ?>"<br></h6>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="mx-auto d-block btn btn-danger">Bloquear Ocorrência</button>
-                        <button type="button" class="mx-auto d-block btn btn-success">Aprovar Ocorrência</button>
+                        <form action="bloqueiaOcorrencia.php" method="POST">
+                          <input type="submit" class="mx-auto d-block btn btn-danger" id="bloquear" name="bloquear" value="Bloquear Ocorrência">
+                          <input type="hidden" id="idOcorrencia" name="idOcorrencia" value="<?= $coluna['Codigo'] ?>">
+                        </form>
+                        <form action="aprovaOcorrencia.php" method="POST">
+                          <input type="submit" class="mx-auto d-block btn btn-success">Aprovar Ocorrência</button>
+                          <input type="hidden" id="idOcorrencia" name="idOcorrencia" value="<?= $coluna['Codigo'] ?>">
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
-            <?php endwhile;
+            <?php
+          endwhile;
         else:
           echo "Nenhum Resultado encontrado.";
         endif;

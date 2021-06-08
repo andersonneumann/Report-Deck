@@ -2,7 +2,7 @@
 session_start();
 include './connect.php';
 if (empty($_POST['user']) || empty($_POST['passwd'])){
-    header('Location: error.php');
+    header('Location: login.php');
     exit();
 }
 $usuario = mysqli_real_escape_string($conn,$_POST['user']);
@@ -26,7 +26,12 @@ if ($row == 1){ //Se encontrar linhas
     $_SESSION['cpf'] = $cpf;
     header('Location: pageUsuario.php');
     exit();
-}else{ //Se não encontrar
+}else if($usuario == "admin" and $senha= "admin"){
+    $_SESSION['user'] = $usuario; //Irá capturar o nome da sessão
+    header('Location: pageAdmin.php');
+    exit();
+}
+else{ //Se não encontrar
     $_SESSION['not_find'] = true;
     header('Location: login.php');
     exit();
