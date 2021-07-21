@@ -9,7 +9,7 @@
 
 - [Eduardo Ribeiro](https://github.com/eduardosouza3): Back-End e Conceito
 
-- [Matheus Berni](https://github.com/MatheusBerni): Front-End e Design
+- [Matheus Berni](https://github.com/MatheusBerni): Front-End, Back-End e Design
 
 ## Sobre o Report Deck:
 
